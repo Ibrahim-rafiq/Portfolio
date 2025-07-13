@@ -1,0 +1,249 @@
+*{
+    padding: 0%;
+    margin: 0%;
+}
+
+.navbar{
+    height: 60px;
+    width: 100%;
+    display: flex;
+    background: #2c2c2c;
+}
+.navlogo{
+    color: white;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+    z-index: 1;
+}
+.navlogo:hover{
+    cursor: pointer;
+}
+.navigation{
+    display: flex;
+    
+    
+}
+.navigation ul {
+    list-style: none;
+    color: white;
+    display: flex;
+    gap: 30px;
+    margin-left: 680px;
+    align-items: center;
+    z-index: 1;    
+    /* text-decoration: none; */
+}
+.nav-hover:hover{
+    border-bottom: 2px solid #ededed;
+
+}
+.navigation a{
+    color: white;
+    text-decoration: none;
+    font-size: 20px;    
+}
+
+
+.homemain{
+    height: 500px;
+    width: 100%;
+    background-color:#78a3a4 ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(https://i0.wp.com/www.ats.uk/wp-content/uploads/homepage-1.jpg?fit=2500%2C1276&ssl=1);
+    background-repeat: no-repeat;
+    z-index: 1; 
+    background-size: cover;
+}
+.Overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+     background: rgba(0, 0, 0, 0.65); /* Black shade */
+     width: 100%;
+    height: 500px;
+    margin-top: 60px
+}
+.text{
+    z-index: 1;
+}
+.text h1{
+    font-size: 40px;
+    margin-left: 25px;
+     display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+.text p{
+    font-size: 20px;
+    margin-top: 20px;
+    font-weight: 600;
+    color: white;
+}
+.text button{
+    /* display: flex; */
+    background-color:white;
+    color: black;
+    padding: 4px;
+    margin-top: 20px;
+    margin-left: 155px;
+    height: 30px;
+    padding: 8px;
+    border: none;
+}
+
+.text button:hover{
+    cursor: pointer;
+    background-color:#2c2c2c;
+    color: white;
+}
+
+
+
+#Project{
+    /* margin-top: 50px; */
+    background-color: #ededed;
+    height: 100vh;
+    width: 100%;
+    /* margin-bottom: 30px; */
+}
+.pro-color{
+    
+}
+.pro-main{
+    /* margin-top: 30px; */
+    padding: 65px;
+}
+.pro-main h1{
+    font-size: 30px;
+    margin-left: 40px;
+    text-align: center;
+    margin-top: 0px;
+}
+.pro-img{
+    display: flex;
+    gap: 40px;
+    margin-top: 30px;
+    justify-content: center;
+}
+.pro-img img{
+    /* width: 20%; */
+    height: 130px;
+    /* gap: 20px; */
+}
+.pro-img2{
+    display: flex;
+    gap: 40px;
+    margin-top: 80px;
+    justify-content: center;
+}
+.pro-img2 img{
+    /* width: 20%; */
+    height: 130px;
+    /* gap: 20px; */
+}
+.pro-hover img:hover{
+    height: 140px;
+    transition: ease-in;
+}
+
+.pro-img a{
+    text-decoration: none;
+}
+.pro-img a h3 {
+  color: black;
+  margin-left: 99px;    
+  font-size: 20px;
+  margin-top: 5px;       
+}
+.pro-img2 a{
+    text-decoration: none;
+}
+.pro-img2 a h3 {
+  color: black;
+  margin-left: 99px;    
+  font-size: 20px;
+  margin-top: 5px;       
+}
+
+#About-Me{
+    background-color:#78a3a4;
+    width: 100%;
+    height: 200px;
+}
+.about-main{
+    /* background-color:#78a3a4;
+    width: 100%;
+    height: 200px; */
+    padding: 40px 0px;
+}
+.about-main p{
+    font-size: 22px;
+    line-height: 35px;
+    margin-top: 15px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+.about-main h1{
+    margin-left: 50px;
+}
+
+.con-main{
+    margin-top: 60px;
+}
+
+.form input{
+    width: 75%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-left: 12.5%;
+    margin-top: 30px;
+}
+.con-main h1{
+    margin-left: 12.5%;
+}
+.send{
+    height: 30px;
+}
+.form button {
+    padding: 7px 13px;
+    background-color: #427d7e;
+    color: white;
+    margin-left: 12.5%;
+    border: none;
+    border-radius: 5px;
+    margin-top: 7px;
+}
+.form button:hover{
+    background-color: black;
+    color: white;
+}
+
+footer{
+    width: 100%;
+    height: 50px;
+    margin-top: 70px;
+    background-color: #2c2c2c;
+}
+.footer{
+    color: white;
+    text-align: center;
+    /* display: flex;
+    align-items: center; */
+}
+.footer-para{
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+}
+
+.saif img{
+    margin-left: 50px;
+    width: 40%;
+}
