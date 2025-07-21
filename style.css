@@ -33,7 +33,7 @@
     margin-left: 680px;
     align-items: center;
     z-index: 1;    
-    /* text-decoration: none; */
+    
 }
 .nav-hover:hover{
     border-bottom: 2px solid #ededed;
@@ -69,30 +69,25 @@
 }
 .text{
     z-index: 1;
+    text-align: center;
 }
 .text h1{
-    font-size: 40px;
-    margin-left: 25px;
-     display: flex;
-    justify-content: center;
-    align-items: center;
+     font-size: clamp(26px, 3vw, 35px);
     color: white;
 }
 .text p{
-    font-size: 20px;
-    margin-top: 20px;
+    font-size: clamp(17px, 2vw, 21px);
+    margin-top: 23px;
     font-weight: 600;
     color: white;
+    /* margin-left: 70px; */
 }
 .text button{
     /* display: flex; */
     background-color:white;
     color: black;
+    margin-top: 23px;
     padding: 4px;
-    margin-top: 20px;
-    margin-left: 155px;
-    height: 30px;
-    padding: 8px;
     border: none;
 }
 
@@ -107,7 +102,8 @@
 #Project{
     /* margin-top: 50px; */
     background-color: #ededed;
-    height: 100vh;
+    /* height: 100vh; */
+    flex-wrap: wrap;
     width: 100%;
     /* margin-bottom: 30px; */
 }
@@ -119,15 +115,17 @@
     padding: 65px;
 }
 .pro-main h1{
-    font-size: 30px;
+     font-size: clamp(29px, 2.5vw, 35px);
     margin-left: 40px;
     text-align: center;
     margin-top: 0px;
 }
 .pro-img{
     display: flex;
-    gap: 40px;
+    gap: 60px;
     margin-top: 30px;
+    /* border: 2px solid red; */
+    flex-wrap: wrap;
     justify-content: center;
 }
 .pro-img img{
@@ -137,9 +135,10 @@
 }
 .pro-img2{
     display: flex;
-    gap: 40px;
-    margin-top: 80px;
+    gap: 60px;
+    margin-top: 60px;
     justify-content: center;
+    flex-wrap: wrap;
 }
 .pro-img2 img{
     /* width: 20%; */
@@ -155,10 +154,10 @@
     text-decoration: none;
 }
 .pro-img a h3 {
-  color: black;
-  margin-left: 99px;    
+  color: black;   
   font-size: 20px;
-  margin-top: 5px;       
+  margin-top: 5px;   
+  text-align: center;    
 }
 .pro-img2 a{
     text-decoration: none;
@@ -173,23 +172,20 @@
 #About-Me{
     background-color:#78a3a4;
     width: 100%;
-    height: 200px;
+    display: flex;
+    align-items: center;
 }
 .about-main{
-    /* background-color:#78a3a4;
-    width: 100%;
-    height: 200px; */
-    padding: 40px 0px;
+    padding: 30px;
 }
 .about-main p{
-    font-size: 22px;
     line-height: 35px;
     margin-top: 15px;
     margin-left: 50px;
-    margin-right: 50px;
 }
 .about-main h1{
-    margin-left: 50px;
+    margin-left: 50px;  
+
 }
 
 .con-main{
@@ -247,3 +243,65 @@ footer{
     margin-left: 50px;
     width: 40%;
 }
+
+
+
+
+
+
+
+
+
+@media (min-width: 276px) {
+    .about-main p{
+        line-height: 30px;
+        font-size: 18px;
+    }
+  .text button{
+    padding: 2.5px;
+  }
+  .pro-img a h3{
+    font-size: 18px;
+  }
+  .about-main h1{
+    font-size: 22px;
+  }
+}
+
+
+/* Small (sm) devices - mobile */
+@media (min-width: 576px) {
+        .about-main p{
+        line-height: 30px;
+        font-size: 21px;
+    }
+  .text button{
+    padding: 2.5px;
+  }
+  .pro-img a h3{
+    font-size: 18px;
+  }
+    .about-main h1{
+    font-size: 22px;
+  }
+}
+
+/* Medium (md) devices - tablets */
+@media (min-width: 768px) {
+    .pro-img a h3{
+    font-size: 19px;
+  }
+      .about-main h1{
+    font-size: 24.5px;
+  }
+  
+}
+
+/* Large (lg) devices - laptops/desktops */
+@media (min-width: 992px) {
+      .pro-img a h3{
+    font-size: 20px;
+  }
+}
+
+
