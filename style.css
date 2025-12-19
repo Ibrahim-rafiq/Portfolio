@@ -39,7 +39,7 @@ color: white;
 
 
 .homemain{
-    height: 500px;
+    height: 88vh;
     width: 100%;
     background-color:#78a3a4 ;
     display: flex;
@@ -56,7 +56,7 @@ color: white;
     left: 0;
      background: rgba(0, 0, 0, 0.65); /* Black shade */
      width: 100%;
-    height: 500px;
+    height: 88vh;
     margin-top: 60px
 }
 .text{
