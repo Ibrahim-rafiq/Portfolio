@@ -227,7 +227,22 @@ footer{
 }
 
 
-
+.pro-img3{
+    display: flex;
+    gap: 60px;
+    margin-top: 60px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.pro-img3 img{
+    /* width: 20%; */
+    height: 130px;
+    /* gap: 20px; */
+}
+.pro-hover img:hover{
+    height: 140px;
+    transition: ease-in;
+}
 
 
 
