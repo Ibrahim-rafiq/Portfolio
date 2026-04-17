@@ -2,141 +2,657 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-    <link rel="stylesheet" href="./style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Smart Studio | High-Retention Video Editing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #05050F;
+            color: #EDEDF4;
+            scroll-behavior: smooth;
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0A0A18;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #7B2EDA;
+            border-radius: 10px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #C084FC, #7C3AED);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .btn-primary {
+            background: linear-gradient(95deg, #7C3AED, #A855F7);
+            border: none;
+            padding: 14px 32px;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 1rem;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(124, 58, 237, 0.3);
+            display: inline-block;
+            text-decoration: none;
+            letter-spacing: -0.2px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(124, 58, 237, 0.5);
+            background: linear-gradient(95deg, #8B5CF6, #C084FC);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1.5px solid #A855F7;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-weight: 600;
+            color: #E9D5FF;
+            transition: 0.2s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-outline:hover {
+            background: rgba(168, 85, 247, 0.15);
+            border-color: #C084FC;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 28px;
+        }
+
+        section {
+            padding: 90px 0;
+        }
+
+        h2 {
+            font-size: 2.6rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 1rem;
+        }
+
+        .section-sub {
+            font-size: 1.2rem;
+            color: #A1A1B0;
+            margin-bottom: 3rem;
+            max-width: 600px;
+        }
+
+        .services-grid, .portfolio-grid, .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: rgba(15, 15, 30, 0.7);
+            backdrop-filter: blur(2px);
+            border-radius: 32px;
+            padding: 2rem 1.5rem;
+            border: 1px solid rgba(124, 58, 237, 0.25);
+            transition: all 0.25s ease;
+            box-shadow: 0 10px 20px -5px rgba(0,0,0,0.5);
+        }
+
+        .service-card:hover {
+            border-color: #A855F7;
+            transform: translateY(-6px);
+            background: #0F0F20;
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: #C084FC;
+            margin-bottom: 1.2rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+        }
+
+        .service-card p {
+            color: #B9B9D0;
+            line-height: 1.4;
+        }
+
+        /* Portfolio Video Styles */
+        .portfolio-item {
+            background: #0C0C1A;
+            border-radius: 28px;
+            overflow: hidden;
+            transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
+            border: 1px solid #22223B;
+        }
+
+        .portfolio-video {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            background: #10101E;
+            display: block;
+        }
+
+        .portfolio-thumb {
+            position: relative;
+            background: #10101E;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+        }
+
+        .video-wrapper video {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            background: #0a0a14;
+        }
+
+        .play-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: 0.25s;
+            pointer-events: none;
+        }
+
+        .portfolio-item:hover .play-overlay {
+            opacity: 1;
+        }
+
+        .play-icon-big {
+            background: #7C3AED;
+            width: 55px;
+            height: 55px;
+            border-radius: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: white;
+            box-shadow: 0 0 15px #A855F7;
+        }
+
+        .portfolio-info {
+            padding: 1.2rem 1.2rem;
+        }
+
+        .portfolio-info h4 {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .badge-cat {
+            display: inline-block;
+            background: #2D194F;
+            padding: 4px 12px;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #D8B4FE;
+            margin-top: 8px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 1.8rem 1rem;
+            background: #090915;
+            border-radius: 32px;
+            border: 1px solid #23223F;
+        }
+
+        .feature-item i {
+            font-size: 2.2rem;
+            color: #C084FC;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-card {
+            background: #0C0C1A;
+            border-radius: 28px;
+            padding: 2rem;
+            border: 1px solid #2A2A44;
+        }
+
+        .testimonial-text {
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #D1D1E9;
+            margin-bottom: 1.2rem;
+            font-style: italic;
+        }
+
+        .client-name {
+            font-weight: 700;
+            color: #E9D5FF;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+        .contact-card {
+            background: #0E0E1C;
+            border-radius: 60px;
+            padding: 0.8rem 1.8rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            border: 1px solid #3B2C5A;
+            transition: 0.2s;
+        }
+        .contact-card i {
+            font-size: 1.4rem;
+            color: #C084FC;
+        }
+        .contact-card:hover {
+            background: #1F1A3A;
+            border-color: #A855F7;
+            transform: scale(1.02);
+        }
+
+        nav {
+            padding: 24px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+        }
+        .nav-links a {
+            color: #DDDDFF;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.2s;
+            font-size: 1rem;
+        }
+        .nav-links a:hover {
+            color: #C084FC;
+        }
+
+        .hero {
+            padding: 40px 0 80px;
+        }
+        .hero-content {
+            max-width: 700px;
+        }
+        .hero h1 {
+            font-size: 3.8rem;
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -2px;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: #BCBCE0;
+            margin: 24px 0 32px;
+        }
+
+        @media (max-width: 992px) {
+            .container { padding: 0 24px; }
+            section { padding: 70px 0; }
+            h2 { font-size: 2.2rem; }
+            .hero h1 { font-size: 3.2rem; }
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 0 20px; }
+            section { padding: 60px 0; }
+            h2 { font-size: 2rem; text-align: center; }
+            .section-sub { text-align: center; margin-left: auto; margin-right: auto; font-size: 1rem; }
+            nav { flex-direction: column; text-align: center; }
+            .nav-links { justify-content: center; gap: 1.5rem; }
+            .hero { text-align: center; padding: 20px 0 60px; }
+            .hero-content { margin: 0 auto; }
+            .hero h1 { font-size: 2.4rem; }
+            .hero p { font-size: 1rem; }
+            .services-grid, .portfolio-grid, .testimonial-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+            .features-grid { grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+            .contact-links { flex-direction: column; align-items: center; gap: 1rem; }
+            .contact-card { width: 80%; justify-content: center; }
+        }
+
+        @media (max-width: 550px) {
+            .hero h1 { font-size: 1.9rem; }
+            h2 { font-size: 1.7rem; }
+            .features-grid { grid-template-columns: 1fr; }
+            .contact-card { width: 100%; }
+            .logo { font-size: 1.5rem; }
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            border-top: 1px solid #1E1E32;
+            color: #7F7F9A;
+            font-size: 0.85rem;
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1), transform 0.7s ease;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
 <body>
-    <nav class="main">
-        <nav class="navbar nav1 navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand navlogo1" href="#">Portfolio</a>
-    <button class="navbar-toggler tog1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active main-nav" aria-current="page" href="#Home">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link main-nav" href="#Project">Project</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link main-nav" href="#About-Me">About Me</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link main-nav" href="#contact">Contact Me</a>
-        </li>
 
-      </ul>
+<header>
+    <div class="container">
+        <nav>
+            <div class="logo">SMART<span class="gradient-text">STUDIO</span></div>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
     </div>
-  </div>
-</nav>
-        <!-- <div class="navlogo">
-            <h1>Portfolio</h1>
-        </div> -->
-        <!-- <div class="navigation">
-            <ul>
-                <li class="nav-hover"><a href="#Home"><span></span>Home</a></li>
-                <li class="nav-hover"><a href="#Project"><span></span>Project</a></li>
-                <li class="nav-hover"><a href="#About-Me"><span></span>About Me</a></li>
-                <li class="nav-hover"><a href="#contact"><span></span>Contact Us</a></li>
-            </ul>
-        </div> -->
-    </nav>
+</header>
 
-    <section id="Home">
-        <div class="homemain">
-            <div class="Overlay"></div>
-            <div class="text">
-                <h1>Hello, I'm Ibrahim</h1>
-                <p>and I am a Web Developer</p>
-                <a href="#Project"> <button>View My Project</button></a>
+<main>
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content fade-up">
+                <h1>I Turn Simple Videos Into <span class="gradient-text">High-Retention Content</span></h1>
+                <p>Captions that hook. Edits that stick. I help creators & YouTubers explode watch time with retention-driven storytelling & smart captions.</p>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: flex-start;">
+                    <a href="#contact" class="btn-primary">Hire Me →</a>
+                    <a href="#portfolio" class="btn-outline">View My Work</a>
+                </div>
             </div>
-
-        </div>
-    </section>
-    <!-- this section is end ------------------------>
-
-
-        <section id="Project"> 
-            <div class="pro-color">
-            <div class="pro-main">
-                <h1>Project's</h1>
-                <div class="pro-img">
-                    <a href="https://ibrahim-rafiq.github.io/simple-To-do-list/" target="_blank"><img src="./assets/To-Dolist.jpeg" alt=""><h3>To-do list</h3></a>
-                    <a href="https://ibrahim-rafiq.github.io/Tic-Tac-Toe-Game/" class="pro-hover" target="_blank"><img src="./assets/game.jpeg" alt=""><h3>Tic-Tac-Toe game</h3></a>
-                    <a href="https://ibrahim-rafiq.github.io/blocktopia-clone/" class="pro-hover" target="_blank"><img src="./assets/blocktopia.jpg" alt=""><h3>Block-topia-clone</h3></a>
-                    <a href="https://ibrahim-rafiq.github.io/Stop-Watch/" class="pro-hover" target="_blank"><img src="./assets/Stop watch.jpeg" alt=""><h3>Stop-Watch</h3></a>
-                    <a href="https://ibrahim-rafiq.github.io/room-decoration-website/" class="pro-hover" target="_blank"><img src="./assets/Decoration.jpeg" alt=""><h3>Home-designing</h3></a>
-                    <a href="https://ibrahim-rafiq.github.io/Quiz-Application/" class="pro-hover" target="_blank"><img src="./assets/quiz-app.jpeg" alt=""><h3>Quiz-App</h3></a>
-                    <a href="https://ibrahim-rafiq.github.io/Login_page/" class="pro-hover" target="_blank"><img src="./assets/loginpage.jpeg" alt=""><h3>Login-Page</h3></a>
-                    
-                </div>
-                <div class="pro-img2">
-                    <a href="https://ibrahim-rafiq.github.io/olx-website-clone/" class="pro-hover" target="_blank"><img src="./assets/OLX.jpg" alt=""><h3>OLX-clone</h3></a>
-                    <a href="../website/index.html" class="pro-hover" target="_blank"><img src="./assets/headphone.jpg" alt=""><h3>Base-clone</h3></a>
-                    <a href="https://ibrahim-rafiq.github.io/Parallax-Website/" class="pro-hover" target="_blank"><img src="./assets/Parallax.jpg" alt=""><h3>Parallax-Website</h3></a>
-                    <a href="https://ibrahim-rafiq.github.io/Personal-biography/" class="pro-hover" target="_blank"><img src="./assets/Personal bio.jpeg" alt=""><h3>Personal biography</h3></a>
-                </div>
-♣♣
-                            <div class="pro-img2">
-                    <a href="https://ibrahim-rafiq.github.io/noon-website-clone/" class="pro-hover" target="_blank"><img src="./assets/market.jpg" alt=""><h3>Noon-clone</h3></a>
-                    <a href="../gym website/gym.html" class="pro-hover" target="_blank"><img src="./assets/gym.jpg" alt=""><h3>Gym-clone</h3></a>
-                    
-                    <a href="https://ibrahim-rafiq.github.io/Saylani-website/" class="pro-hover" target="_blank"><img src="./assets/saylani.jpg" alt=""><h3>Saylani-clone</h3></a>
-                </div>
-        </div>
-        </section>
-    <!-- this section end here---------------------- -->
-
-
-
-
-        <section id="About-Me">
-            <div class="about-main">    
-                <h1>About Me</h1>
-                <p>I’m a creative designer and skilled coder. I design modern, user-friendly interfaces and develop responsive websites using clean code. I love turning ideas into real digital experiences that look great and work smoothly.</p>
-            </div>
-        </section>
-
-
-
-
-
-    <section id="contact">
-        <div class="con-main">
-            <h1>Contact Us</h1>
-            <form action="#" class="form" method="post">
-               <input type="text" name="name" placeholder="Entere Your Name" required><br>
-               <input type="email" name="email" placeholder="Entere Your Email" required><br>
-               <input type="text" name="name" class="send" placeholder="Type Your Messege" required><br>
-               <button type="submit" class="btn">Send Message</button>
-                
-            </form>
         </div>
     </section>
 
-
-
-    <footer>
-                <div class="footer">
-            <p class="footer-para">&copy; 2025 Muhammed Ibrahim .  All rights reserved.</p>
+    <section id="about">
+        <div class="container">
+            <div class="fade-up">
+                <h2>About <span class="gradient-text">Smart Studio</span></h2>
+                <div style="max-width: 800px; margin: 0 auto;">
+                    <p style="font-size: 1.2rem; line-height: 1.5; margin-bottom: 1.5rem;">I'm a video editing expert obsessed with one thing: <strong>keeping viewers glued until the last second</strong>. With cinematic pacing, dynamic captions, and retention hooks, I transform raw footage into high-performing content for YouTube, TikTok, Instagram, and podcasts.</p>
+                    <p>My style blends storytelling, sound design, and motion captions that increase average watch time by 40%+. Whether you're a YouTuber, podcaster, or short-form creator, I edit to maximize engagement and grow your audience.</p>
+                </div>
+            </div>
         </div>
-    </footer>
+    </section>
 
+    <section id="services" style="background: #070712;">
+        <div class="container">
+            <div class="fade-up">
+                <h2>Editing that <span class="gradient-text">converts views → followers</span></h2>
+                <div class="section-sub">Specialized services for creators who demand high retention & clean captions.</div>
+            </div>
+            <div class="services-grid">
+                <div class="service-card fade-up">
+                    <div class="service-icon"><i class="fas fa-closed-captioning"></i></div>
+                    <h3>Auto Caption Videos</h3>
+                    <p>Dynamic, animated subtitles for Reels, TikTok, Shorts. Increases watch time & accessibility. Fast turnaround.</p>
+                </div>
+                <div class="service-card fade-up">
+                    <div class="service-icon"><i class="fab fa-youtube"></i></div>
+                    <h3>YouTube Shorts Editing</h3>
+                    <p>Vertical masterpieces with high energy pacing, sound effects, and engaging captions — optimized for algorithm.</p>
+                </div>
+                <div class="service-card fade-up">
+                    <div class="service-icon"><i class="fas fa-microphone-alt"></i></div>
+                    <h3>Podcast Editing</h3>
+                    <p>Multi-cam sync, clean audio, highlight clips, captioned snippets. Ready for YouTube & social.</p>
+                </div>
+                <div class="service-card fade-up">
+                    <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Retention-Based Editing</h3>
+                    <p>Hooks, zoom cuts, sound design, fast pacing — engineered to keep retention above 70%.</p>
+                </div>
+                <div class="service-card fade-up">
+                    <div class="service-icon"><i class="fab fa-instagram"></i></div>
+                    <h3>Social Media Editing</h3>
+                    <p>Reels, TikTok, Instagram ads. Scroll-stopping first 3 seconds, viral captions, cinematic transitions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Portfolio Section with Google Drive Videos -->
+    <section id="portfolio">
+        <div class="container">
+            <div class="fade-up">
+                <h2>Recent <span class="gradient-text">Projects</span></h2>
+                <div class="section-sub">Watch my work — retention editing + clean captions in action.</div>
+            </div>
+            <div class="portfolio-grid">
+                <!-- Video 1 -->
+                <div class="portfolio-item fade-up">
+                    <div class="video-wrapper">
+                        <video class="portfolio-video" poster="https://via.placeholder.com/640x360/0a0a14/7C3AED?text=Smart+Studio+Preview">
+                            <source src="https://drive.google.com/uc?export=download&id=1O3RaLA9adGO_ZGHbDNhmFOmhmFY20B79" type="video/mp4">
+                            Your browser does not support the video.
+                        </video>
+                        <div class="play-overlay">
+                            <div class="play-icon-big"><i class="fas fa-play"></i></div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h4>Retention Edit - Viral Reel</h4>
+                        <span class="badge-cat">Instagram Reel / TikTok</span>
+                    </div>
+                </div>
+                <!-- Video 2 -->
+                <div class="portfolio-item fade-up">
+                    <div class="video-wrapper">
+                        <video class="portfolio-video" poster="https://via.placeholder.com/640x360/0a0a14/7C3AED?text=Smart+Studio+Preview">
+                            <source src="https://drive.google.com/uc?export=download&id=1vhlsNWYei7PggH_9JBxHcU3yCkl4cuZ5" type="video/mp4">
+                            Your browser does not support the video.
+                        </video>
+                        <div class="play-overlay">
+                            <div class="play-icon-big"><i class="fas fa-play"></i></div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h4>Cinematic Storytelling + Captions</h4>
+                        <span class="badge-cat">YouTube / Shorts</span>
+                    </div>
+                </div>
+            </div>
+            <div class="fade-up" style="text-align: center; margin-top: 2.5rem;">
+                <a href="#contact" class="btn-outline">View Full Portfolio →</a>
+            </div>
+        </div>
+    </section>
 
+    <section id="why-me" style="background: #06060E;">
+        <div class="container">
+            <div class="fade-up" style="text-align: center;">
+                <h2>Why creators <span class="gradient-text">trust Smart Studio</span></h2>
+                <div class="section-sub" style="margin-left: auto; margin-right: auto;">Quality, speed, and retention-driven results.</div>
+            </div>
+            <div class="features-grid">
+                <div class="feature-item fade-up"><i class="fas fa-bolt"></i><h3>Fast Delivery</h3><p>24-48h turnaround for Shorts/Reels. Rush options available.</p></div>
+                <div class="feature-item fade-up"><i class="fas fa-eye"></i><h3>High Retention</h3><p>Data-backed pacing: hooks, cuts, sound design keep viewers watching.</p></div>
+                <div class="feature-item fade-up"><i class="fas fa-captioning"></i><h3>Clean Captions</h3><p>Stylish, on-brand captions that boost engagement & accessibility.</p></div>
+                <div class="feature-item fade-up"><i class="fas fa-rocket"></i><h3>Creator-Focused</h3><p>I think like a creator — your growth = my priority.</p></div>
+            </div>
+        </div>
+    </section>
 
+    <section id="testimonials">
+        <div class="container">
+            <div class="fade-up" style="text-align: center;">
+                <h2>What <span class="gradient-text">creators say</span></h2>
+                <div class="section-sub">Real feedback from YouTubers & short-form creators.</div>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card fade-up">
+                    <i class="fas fa-star" style="color: #FBBF24; margin-bottom: 12px;"></i><i class="fas fa-star" style="color: #FBBF24;"></i><i class="fas fa-star" style="color: #FBBF24;"></i><i class="fas fa-star" style="color: #FBBF24;"></i><i class="fas fa-star" style="color: #FBBF24;"></i>
+                    <p class="testimonial-text">"Smart Studio edited my YouTube Shorts and my average view duration skyrocketed. The captions style is fire and super fast delivery. Highly recommend!"</p>
+                    <p class="client-name">— Alex Rivera, 200k+ TikTok creator</p>
+                </div>
+                <div class="testimonial-card fade-up">
+                    <i class="fas fa-star" style="color: #FBBF24;"></i><i class="fas fa-star" style="color: #FBBF24;"></i><i class="fas fa-star" style="color: #FBBF24;"></i><i class="fas fa-star" style="color: #FBBF24;"></i><i class="fas fa-star" style="color: #FBBF24;"></i>
+                    <p class="testimonial-text">"Retention editing is no joke — he turned my raw podcast into engaging clips that brought 100k views. The captions & pacing are next level."</p>
+                    <p class="client-name">— Jamie L., Podcast Host</p>
+                </div>
+                <div class="testimonial-card fade-up">
+                    <i class="fas fa-star" style="color: #FBBF24;"></i><i class="fas fa-star" style="color: #FBBF24;"></i><i class="fas fa-star" style="color: #FBBF24;"></i><i class="fas fa-star" style="color: #FBBF24;"></i><i class="fas fa-star" style="color: #FBBF24;"></i>
+                    <p class="testimonial-text">"My Reels went from 3k to 150k views after one month of working with Smart Studio. He understands what makes content addictive."</p>
+                    <p class="client-name">— Taylor M., Instagram Creator</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Contact Section - Only WhatsApp and Instagram (No Email) -->
+    <section id="contact" style="background: linear-gradient(145deg, #070713 0%, #0B0A18 100%);">
+        <div class="container">
+            <div class="fade-up" style="text-align: center; max-width: 750px; margin: 0 auto;">
+                <h2>Let's Grow Your <span class="gradient-text">Content</span></h2>
+                <p style="font-size: 1.2rem; margin-bottom: 2rem;">Stop losing views. Start getting results with retention-based edits & clean captions. Hit me up — let's bring your vision to life.</p>
+                <a href="#contact" class="btn-primary" style="margin-bottom: 2rem; display: inline-block;">Contact Me →</a>
+                <div style="margin: 2rem 0 1rem;">
+                    <h3 style="font-weight: 600;">📩 Connect With Me</h3>
+                </div>
+                <div class="contact-links">
+                    <a href="https://wa.me/923282081158" class="contact-card" target="_blank"><i class="fab fa-whatsapp"></i> +92 328 2081158</a>
+                    <a href="https://www.instagram.com/smart__studio___" class="contact-card" target="_blank"><i class="fab fa-instagram"></i> @smart__studio___</a>
+                </div>
+                <p style="margin-top: 2rem; font-size: 0.9rem; color: #8686a0;">Response within 12h — Let's make your content unforgettable.</p>
+            </div>
+        </div>
+    </section>
+</main>
 
+<footer class="footer">
+    <div class="container">
+        <p>© 2025 Smart Studio — Retention Editing & Captions Specialist. All rights reserved.</p>
+    </div>
+</footer>
 
+<script>
+    (function() {
+        // fade animation
+        const fadeElements = document.querySelectorAll('.fade-up');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15, rootMargin: "0px 0px -30px 0px" });
+        fadeElements.forEach(el => observer.observe(el));
 
-     
+        // smooth anchor scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === "#" || targetId === "" || targetId === "#contact-form") return;
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
 
+        // Video play/pause on click
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+        portfolioItems.forEach(item => {
+            const video = item.querySelector('video');
+            if (video) {
+                item.addEventListener('click', (e) => {
+                    if (e.target.tagName === 'VIDEO' || e.target.closest('video')) return;
+                    if (video.paused) {
+                        video.play();
+                    } else {
+                        video.pause();
+                    }
+                });
+                video.addEventListener('play', () => {
+                    portfolioItems.forEach(other => {
+                        const otherVideo = other.querySelector('video');
+                        if (otherVideo && otherVideo !== video && !otherVideo.paused) {
+                            otherVideo.pause();
+                        }
+                    });
+                });
+            }
+        });
+
+        // Mobile hero buttons alignment
+        const heroBtns = document.querySelector('.hero-content div');
+        if (heroBtns && window.innerWidth <= 768) {
+            heroBtns.style.justifyContent = 'center';
+        }
+        window.addEventListener('resize', () => {
+            if (heroBtns) {
+                heroBtns.style.justifyContent = window.innerWidth <= 768 ? 'center' : 'flex-start';
+            }
+        });
+    })();
+</script>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js" integrity="sha384-7qAoOXltbVP82dhxHAUje59V5r2YsVfBafyUDxEdApLPmcdhBPg1DKg1ERo0BZlK" crossorigin="anonymous"></script>
 </html>
