@@ -105,7 +105,7 @@
 
         .services-grid, .portfolio-grid, .testimonial-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 2rem;
         }
 
@@ -142,76 +142,42 @@
             line-height: 1.4;
         }
 
-        /* Portfolio Video Styles */
+        /* Portfolio Video Styles - Center Fixed */
         .portfolio-item {
             background: #0C0C1A;
             border-radius: 28px;
             overflow: hidden;
             transition: all 0.3s;
-            cursor: pointer;
-            position: relative;
             border: 1px solid #22223B;
-        }
-
-        .portfolio-video {
-            width: 100%;
-            aspect-ratio: 16 / 9;
-            object-fit: cover;
-            background: #10101E;
-            display: block;
-        }
-
-        .portfolio-thumb {
-            position: relative;
-            background: #10101E;
             display: flex;
-            align-items: center;
-            justify-content: center;
+            flex-direction: column;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-6px);
+            border-color: #7C3AED;
         }
 
         .video-wrapper {
             position: relative;
             width: 100%;
+            background: #0a0a14;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        .video-wrapper video {
+        .video-wrapper iframe {
             width: 100%;
             aspect-ratio: 16 / 9;
-            object-fit: cover;
-            background: #0a0a14;
-        }
-
-        .play-overlay {
-            position: absolute;
-            inset: 0;
-            background: rgba(0,0,0,0.5);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: 0.25s;
-            pointer-events: none;
-        }
-
-        .portfolio-item:hover .play-overlay {
-            opacity: 1;
-        }
-
-        .play-icon-big {
-            background: #7C3AED;
-            width: 55px;
-            height: 55px;
-            border-radius: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            color: white;
-            box-shadow: 0 0 15px #A855F7;
+            display: block;
+            border: none;
+            background: #000;
         }
 
         .portfolio-info {
             padding: 1.2rem 1.2rem;
+            text-align: center;
         }
 
         .portfolio-info h4 {
@@ -397,6 +363,17 @@
             opacity: 1;
             transform: translateY(0);
         }
+        
+        .info-box {
+            background: #1A1030;
+            border-left: 4px solid #F59E0B;
+            padding: 12px 18px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            font-size: 0.85rem;
+            color: #FDE68A;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -477,44 +454,57 @@
         </div>
     </section>
 
-    <!-- Portfolio Section with Google Drive Videos -->
+    <!-- Portfolio Section - Working with iframe + Center Fixed -->
     <section id="portfolio">
         <div class="container">
             <div class="fade-up">
                 <h2>Recent <span class="gradient-text">Projects</span></h2>
                 <div class="section-sub">Watch my work — retention editing + clean captions in action.</div>
             </div>
+            
+            <div class="info-box fade-up">
+                <i class="fas fa-info-circle"></i> <strong>Note:</strong> Videos Google Drive se load ho rahi hain. Agar video nahi dikhti toh sharing setting "Anyone with link" karein.
+            </div>
+            
             <div class="portfolio-grid">
                 <!-- Video 1 -->
                 <div class="portfolio-item fade-up">
                     <div class="video-wrapper">
-                        <video class="portfolio-video" poster="https://via.placeholder.com/640x360/0a0a14/7C3AED?text=Smart+Studio+Preview">
-                            <source src="https://drive.google.com/uc?export=download&id=1O3RaLA9adGO_ZGHbDNhmFOmhmFY20B79" type="video/mp4">
-                            Your browser does not support the video.
-                        </video>
-                        <div class="play-overlay">
-                            <div class="play-icon-big"><i class="fas fa-play"></i></div>
-                        </div>
+                        <iframe src="https://drive.google.com/file/d/1vhlsNWYei7PggH_9JBxHcU3yCkl4cuZ5/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                    </div>
+                    <div class="portfolio-info">
+                        <h4>Cinematic Storytelling + Captions</h4>
+                        <span class="badge-cat">YouTube / Shorts</span>
+                    </div>
+                </div>
+                <!-- Video 2 -->
+                <div class="portfolio-item fade-up">
+                    <div class="video-wrapper">
+                        <iframe src="https://drive.google.com/file/d/1O3RaLA9adGO_ZGHbDNhmFOmhmFY20B79/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
                     </div>
                     <div class="portfolio-info">
                         <h4>Retention Edit - Viral Reel</h4>
                         <span class="badge-cat">Instagram Reel / TikTok</span>
                     </div>
                 </div>
-                <!-- Video 2 -->
+                <!-- Video 3 -->
                 <div class="portfolio-item fade-up">
                     <div class="video-wrapper">
-                        <video class="portfolio-video" poster="https://via.placeholder.com/640x360/0a0a14/7C3AED?text=Smart+Studio+Preview">
-                            <source src="https://drive.google.com/uc?export=download&id=1vhlsNWYei7PggH_9JBxHcU3yCkl4cuZ5" type="video/mp4">
-                            Your browser does not support the video.
-                        </video>
-                        <div class="play-overlay">
-                            <div class="play-icon-big"><i class="fas fa-play"></i></div>
-                        </div>
+                        <iframe src="https://drive.google.com/file/d/1O0IFIIKSVRt7u9-mdcb5eheWU2GVKH6l/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
                     </div>
                     <div class="portfolio-info">
-                        <h4>Cinematic Storytelling + Captions</h4>
-                        <span class="badge-cat">YouTube / Shorts</span>
+                        <h4>Dynamic Hooks & Transitions</h4>
+                        <span class="badge-cat">YouTube / Long Form</span>
+                    </div>
+                </div>
+                <!-- Video 4 -->
+                <div class="portfolio-item fade-up">
+                    <div class="video-wrapper">
+                        <iframe src="https://drive.google.com/file/d/1xrz-bsijA_xQLGJra0fWDqiAwAvmj67f/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                    </div>
+                    <div class="portfolio-info">
+                        <h4>Fast-Paced Social Media Edit</h4>
+                        <span class="badge-cat">Instagram / TikTok</span>
                     </div>
                 </div>
             </div>
@@ -565,19 +555,15 @@
         </div>
     </section>
 
-    <!-- Contact Section - Only WhatsApp and Instagram (No Email) -->
+    <!-- Contact Section -->
     <section id="contact" style="background: linear-gradient(145deg, #070713 0%, #0B0A18 100%);">
         <div class="container">
             <div class="fade-up" style="text-align: center; max-width: 750px; margin: 0 auto;">
                 <h2>Let's Grow Your <span class="gradient-text">Content</span></h2>
                 <p style="font-size: 1.2rem; margin-bottom: 2rem;">Stop losing views. Start getting results with retention-based edits & clean captions. Hit me up — let's bring your vision to life.</p>
-                <a href="#contact" class="btn-primary" style="margin-bottom: 2rem; display: inline-block;">Contact Me →</a>
-                <div style="margin: 2rem 0 1rem;">
-                    <h3 style="font-weight: 600;">📩 Connect With Me</h3>
-                </div>
                 <div class="contact-links">
                     <a href="https://wa.me/923282081158" class="contact-card" target="_blank"><i class="fab fa-whatsapp"></i> +92 328 2081158</a>
-                    <a href="https://www.instagram.com/smart__studio___" class="contact-card" target="_blank"><i class="fab fa-instagram"></i> @smart__studio___</a>
+                    <a href="https://www.instagram.com/smart__studio___" class="contact-card" target="_blank"><i class="fab fa-instagram"></i> @smartstudio.editz</a>
                 </div>
                 <p style="margin-top: 2rem; font-size: 0.9rem; color: #8686a0;">Response within 12h — Let's make your content unforgettable.</p>
             </div>
@@ -593,7 +579,6 @@
 
 <script>
     (function() {
-        // fade animation
         const fadeElements = document.querySelectorAll('.fade-up');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -605,11 +590,10 @@
         }, { threshold: 0.15, rootMargin: "0px 0px -30px 0px" });
         fadeElements.forEach(el => observer.observe(el));
 
-        // smooth anchor scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 const targetId = this.getAttribute('href');
-                if (targetId === "#" || targetId === "" || targetId === "#contact-form") return;
+                if (targetId === "#" || targetId === "") return;
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     e.preventDefault();
@@ -618,31 +602,6 @@
             });
         });
 
-        // Video play/pause on click
-        const portfolioItems = document.querySelectorAll('.portfolio-item');
-        portfolioItems.forEach(item => {
-            const video = item.querySelector('video');
-            if (video) {
-                item.addEventListener('click', (e) => {
-                    if (e.target.tagName === 'VIDEO' || e.target.closest('video')) return;
-                    if (video.paused) {
-                        video.play();
-                    } else {
-                        video.pause();
-                    }
-                });
-                video.addEventListener('play', () => {
-                    portfolioItems.forEach(other => {
-                        const otherVideo = other.querySelector('video');
-                        if (otherVideo && otherVideo !== video && !otherVideo.paused) {
-                            otherVideo.pause();
-                        }
-                    });
-                });
-            }
-        });
-
-        // Mobile hero buttons alignment
         const heroBtns = document.querySelector('.hero-content div');
         if (heroBtns && window.innerWidth <= 768) {
             heroBtns.style.justifyContent = 'center';
